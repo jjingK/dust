@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+    <title>미세먼지</title>
+    <style>
+        html, body, p, div {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poor Story', cursive;
+        }
+        body,
+        #wrapper {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        table { margin-left : 10px; width: 200px;}
+        table thead th{ border-top:1px solid; }
+        table thead td{ border-top:1px solid; }
+        table th, table td {
+            border-bottom:1px solid; line-height:21px; text-align:center
+        }
+        table td{ border-left:1px solid;}
+        .num_01{ background:#25aefb; color:#333}
+        .num_02{ background:#92f101; color:#333}
+        .num_03{ background:#fde905; color:#333}
+        .num_04{ background:#fc3037; color:#333}
+        .num_05{ background:#f7f7f7; color:#333}
+        #wrapper p {
+            display: flex;
+            align-content: space-between;
+            border-top: 1px solid;
+        }
+        #wrapper p:last-child {
+            border-bottom: 1px solid;
+        }
+        #wrapper p span,
+        #wrapper p strong {
+            display: inline-block;
+            min-width: 100px;
+            border-left: 1px solid;
+            text-align: center;
+            padding: 0.2em;
+        }
+        #wrapper p span:last-child,
+        #wrapper p strong:last-child {
+            border-right: 1px solid;
+        }
+    </style>
+</head>
+<body>
+<h1>미세먼지 <span id="date">{date}</span></h1>
+<div class="container">
+    <table width="100%" cellspacing="0" cellpadding="0" summary="미세먼지 범례을 표로 보여줍니다. 파란색은 좋음, 연두색은 보통, 노랑색은 나쁨, 빨간색은 매우나쁨 , 흰색은 점검중을 의미합니다.">
+        <caption style="display: none;">미세먼지 범례</caption>
+        <colgroup>
+            <col width="50%">
+            <col width="50%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">범례</th>
+            <td>지수범위</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" class="num_01" style="text-align:left;padding-left:5px;">① 좋음</th>
+            <td>0~30</td>
+        </tr>
+        <tr>
+            <th scope="row" class="num_02" style="text-align:left;padding-left:5px;">② 보통</th>
+            <td>31~80</td>
+        </tr>
+        <tr>
+            <th scope="row" class="num_03" style="text-align:left;padding-left:5px;">③ 나쁨</th>
+            <td>81~150</td>
+        </tr>
+        <tr>
+            <th scope="row" class="num_04" style="text-align:left;padding-left:5px;">④ 매우나쁨</th>
+            <td>151~</td>
+        </tr>
+        <tr class="bdr_none">
+            <th scope="row" class="num_05" style="text-align:left;padding-left:5px;">ⓞ 점검중</th>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="wrapper">
+        <p><strong>측정소명</strong><strong>미세먼지</strong><strong>초미세먼지</strong></p>
+        {info}
+    </div>
+</div>
+</body>
+</html>
